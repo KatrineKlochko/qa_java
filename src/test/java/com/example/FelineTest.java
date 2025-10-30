@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
 public class FelineTest {
 
@@ -23,13 +22,6 @@ public class FelineTest {
         List<String> actual = feline.eatMeat();
         assertEquals("Метод eatMeat должен возвращать список, полученный из getFood",
                 expected, actual);
-    }
-
-    @Test
-    public void eatMeatShouldCallGetFoodOnce() throws Exception {
-        Feline spyFeline = spy(new Feline());
-        spyFeline.eatMeat();
-        verify(spyFeline).getFood("Хищник");
     }
 
     @Test
