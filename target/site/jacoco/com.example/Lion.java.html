@@ -5,30 +5,30 @@ import java.util.List;
 public class Lion {
 
     boolean hasMane;
-    private final Predator predator;
+    private final Feline feline;
 
-<span class="nc" id="L10">    public Lion(String sex, Predator predator) throws Exception {</span>
-<span class="nc bnc" id="L11" title="All 2 branches missed.">        if (&quot;Самец&quot;.equals(sex)) {</span>
-<span class="nc" id="L12">            hasMane = true;</span>
-<span class="nc bnc" id="L13" title="All 2 branches missed.">        } else if (&quot;Самка&quot;.equals(sex)) {</span>
-<span class="nc" id="L14">            hasMane = false;</span>
+<span class="fc" id="L10">    public Lion(String sex, Feline feline) throws Exception {</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        if (&quot;Самец&quot;.equals(sex)) {</span>
+<span class="fc" id="L12">            hasMane = true;</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        } else if (&quot;Самка&quot;.equals(sex)) {</span>
+<span class="fc" id="L14">            hasMane = false;</span>
         } else {
-<span class="nc" id="L16">            throw new Exception(&quot;Используйте допустимые значения пола животного - самец или самка&quot;);</span>
+<span class="fc" id="L16">            throw new Exception(&quot;Используйте допустимые значения пола животного - самец или самка&quot;);</span>
         }
-<span class="nc" id="L18">        this.predator = predator;</span>
-<span class="nc" id="L19">    }</span>
+<span class="fc" id="L18">        this.feline = feline;</span>
+<span class="fc" id="L19">    }</span>
 
 
     public int getKittens() {
-<span class="nc" id="L23">        return ((Feline) predator).getKittens();</span>
+<span class="fc" id="L23">        return feline.getKittens();</span>
     }
 
     public boolean doesHaveMane() {
-<span class="nc" id="L27">        return hasMane;</span>
+<span class="fc" id="L27">        return hasMane;</span>
     }
 
     public List&lt;String&gt; getFood() throws Exception {
-<span class="nc" id="L31">        return predator.eatMeat();</span>
+<span class="fc" id="L31">        return feline.eatMeat();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

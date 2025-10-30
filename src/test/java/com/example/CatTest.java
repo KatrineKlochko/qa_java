@@ -26,12 +26,17 @@ public class CatTest {
     }
 
     @Test
-    public void getFoodReturnPredatorList() throws Exception {
-        List<String> expected = List.of("Мышь", "Птица");
+    public void getFoodShouldReturnListFromFeline() throws Exception {
+        List<String> expected = List.of("Животные", "Птицы", "Рыба");
         when(feline.eatMeat()).thenReturn(expected);
-        assertEquals("Метод getFood должен возвращать список от Predator",
-                expected, cat.getFood());
+        List<String> actual = cat.getFood();
+        assertEquals("Метод getFood должен возвращать список от Feline",
+                expected, actual);
+    }
+
+    @Test
+    public void getFoodShouldCallEatMeatOnce() throws Exception{
+        cat.getFood();
         verify(feline).eatMeat();
-        verifyNoMoreInteractions(feline);
     }
 }

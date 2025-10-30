@@ -14,9 +14,9 @@ import static org.mockito.Mockito.mock;
 public class LionParamTest {
 
     private final String sex;
-    private final Boolean expectedHasMane;
+    private final boolean expectedHasMane;
 
-    public LionParamTest(String sex, Boolean expectedHasMane) {
+    public LionParamTest(String sex, boolean expectedHasMane) {
         this.sex = sex;
         this.expectedHasMane = expectedHasMane;
     }
@@ -31,8 +31,8 @@ public class LionParamTest {
 
     @Test
     public void lionHasManeDependingOnSex() throws Exception {
-        Predator predator = mock(Predator.class);
-        Lion lion = new Lion(sex, predator);
+        Feline feline = mock(Feline.class);
+        Lion lion = new Lion(sex, feline);
         assertEquals("Некорректное значение поля hasMane для пола: " + sex,
                 expectedHasMane, lion.doesHaveMane());
     }

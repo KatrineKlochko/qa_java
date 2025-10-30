@@ -18,12 +18,17 @@ public class FelineTest {
     }
 
     @Test
-    public void eatMeatCallGetFoodWithPredatorArgument() throws Exception {
-        Feline spyFeline = spy(new Feline());
-        List<String> expected = List.of("Жертва1", "Жертва2");
-        doReturn(expected).when(spyFeline).getFood("Хищник");
+    public void eatMeatShouldReturnPredatorFoodList() throws Exception {
+        List<String> expected = List.of("Животные", "Птицы", "Рыба");
+        List<String> actual = feline.eatMeat();
         assertEquals("Метод eatMeat должен возвращать список, полученный из getFood",
-                expected, spyFeline.eatMeat());
+                expected, actual);
+    }
+
+    @Test
+    public void eatMeatShouldCallGetFoodOnce() throws Exception {
+        Feline spyFeline = spy(new Feline());
+        spyFeline.eatMeat();
         verify(spyFeline).getFood("Хищник");
     }
 
